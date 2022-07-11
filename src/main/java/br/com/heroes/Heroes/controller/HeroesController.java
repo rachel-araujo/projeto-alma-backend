@@ -23,18 +23,18 @@ import br.com.heroes.Heroes.entities.HeroesEntity;
 import br.com.heroes.Heroes.repository.HeroesRepository;
 
 @RestController
-@RequestMapping("/heroes")
+@RequestMapping("/")
 public class HeroesController {
 
 	@Autowired
 	private HeroesRepository heroesRepository;
 
-	@GetMapping("/heroes")
+	@GetMapping("/")
 	public List< HeroesEntity > getAllHeroesEntities() {
 		return heroesRepository.findAll();
 	}
 
-	@GetMapping("/heroes/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity< HeroesEntity > getHeroesEntitiesById(@PathVariable(value = "id") Integer heroesEntityId)
 			throws ResourceNotFoundException {
 		HeroesEntity heroesEntity = heroesRepository.findById(heroesEntityId)
@@ -50,14 +50,14 @@ public class HeroesController {
 	 */
 
 	
-	 @PostMapping("/heroes") 
+	 @PostMapping("/") 
 	 public HeroesEntity
 	 createHeroesEntity(@Validated @RequestBody HeroesEntity heroesEntity) {
 	 return heroesRepository.save(heroesEntity); 
 	 }
 	 
 
-	@PutMapping("/heroes/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<HeroesEntity> updateHeroesEntity(@PathVariable(value = "id") Integer heroesEntityId,
 			@Validated @RequestBody HeroesEntity heroesEntityDetails) throws ResourceNotFoundException {
 		HeroesEntity heroesEntity = heroesRepository.findById(heroesEntityId)
@@ -68,7 +68,7 @@ public class HeroesController {
 		return ResponseEntity.ok(updateHeroesEntity);
 	}
 
-	@DeleteMapping("/heroes/{id}")
+	@DeleteMapping("/{id}")
 	public Map<String, Boolean> deleteHeroesEntity(@PathVariable(value = "id") Integer heroesEntityId)
 			throws ResourceNotFoundException {
 		HeroesEntity heroesEntity = heroesRepository.findById(heroesEntityId)

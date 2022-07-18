@@ -29,7 +29,7 @@ public class HeroesController {
 	@Autowired
 	private HeroesRepository heroesRepository;
 
-	@GetMapping("/")
+	@GetMapping
 	public List< HeroesEntity > getAllHeroesEntities() {
 		return heroesRepository.findAll();
 	}
@@ -52,9 +52,8 @@ public class HeroesController {
 	 
 
 	
-	 @PostMapping("/") 
-	 public HeroesEntity
-	 createHeroesEntity(@Validated @RequestBody HeroesEntity heroesEntity) {
+	 @PostMapping
+	 public HeroesEntity createHeroesEntity(@Validated @RequestBody HeroesEntity heroesEntity) {
 	 return heroesRepository.save(heroesEntity); 
 	 }
 	 

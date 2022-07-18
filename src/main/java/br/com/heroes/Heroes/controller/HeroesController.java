@@ -23,7 +23,7 @@ import br.com.heroes.Heroes.entities.HeroesEntity;
 import br.com.heroes.Heroes.repository.HeroesRepository;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/heroes")
 public class HeroesController {
 
 	@Autowired
@@ -44,10 +44,12 @@ public class HeroesController {
 	}
 	
 
-	/*
-	 * @PostMapping("/heroes") public void save(@RequestBody HeroesEntity
-	 * heroesEntity) { heroesRepository.save(heroesEntity); }
-	 */
+	
+//	  @PostMapping("/") 
+//	  public void save(@RequestBody HeroesEntity heroesEntity) { 
+//		  heroesRepository.save(heroesEntity); 
+//		  }
+	 
 
 	
 	 @PostMapping("/") 

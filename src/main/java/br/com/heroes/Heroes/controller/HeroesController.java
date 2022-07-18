@@ -42,14 +42,6 @@ public class HeroesController {
 
 		return ResponseEntity.ok().body(heroesEntity);
 	}
-	
-
-	
-//	  @PostMapping("/") 
-//	  public void save(@RequestBody HeroesEntity heroesEntity) { 
-//		  heroesRepository.save(heroesEntity); 
-//		  }
-	 
 
 	
 	 @PostMapping

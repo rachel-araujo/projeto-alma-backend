@@ -11,18 +11,17 @@ import javax.persistence.Table;
 @Table(name = "cad_heroes")
 public class HeroesEntity {
 
-	
 	private Integer id;
 	private String name;
 
 	public HeroesEntity() {
 
 	}
-	
+
 	public HeroesEntity(String name) {
 		this.name = name;
 	}
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {
@@ -32,11 +31,12 @@ public class HeroesEntity {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	@Column(name ="name", nullable = false)
+
+	@Column(name = "name", nullable = false)
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}

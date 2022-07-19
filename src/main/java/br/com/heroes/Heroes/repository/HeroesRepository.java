@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.com.heroes.Heroes.entities.HeroesEntity;
 
 @Repository
-public interface HeroesRepository extends JpaRepository<HeroesEntity, Integer>{
+public interface HeroesRepository extends JpaRepository<HeroesEntity, Integer> {
 
 }

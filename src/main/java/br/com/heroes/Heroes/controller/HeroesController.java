@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
@@ -30,12 +29,12 @@ public class HeroesController {
 	private HeroesRepository heroesRepository;
 
 	@GetMapping
-	public List< HeroesEntity > getAllHeroesEntities() {
+	public List<HeroesEntity> getAllHeroesEntities() {
 		return heroesRepository.findAll();
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity< HeroesEntity > getHeroesEntitiesById(@PathVariable(value = "id") Integer heroesEntityId)
+	public ResponseEntity<HeroesEntity> getHeroesEntitiesById(@PathVariable(value = "id") Integer heroesEntityId)
 			throws ResourceNotFoundException {
 		HeroesEntity heroesEntity = heroesRepository.findById(heroesEntityId)
 				.orElseThrow(() -> new ResourceNotFoundException("Hero not found for this id ::" + heroesEntityId));
@@ -43,12 +42,10 @@ public class HeroesController {
 		return ResponseEntity.ok().body(heroesEntity);
 	}
 
-	
-	 @PostMapping
-	 public HeroesEntity createHeroesEntity(@Validated @RequestBody HeroesEntity heroesEntity) {
-	 return heroesRepository.save(heroesEntity); 
-	 }
-	 
+	@PostMapping
+	public HeroesEntity createHeroesEntity(@Validated @RequestBody HeroesEntity heroesEntity) {
+		return heroesRepository.save(heroesEntity);
+	}
 
 	@PutMapping("/{id}")
 	public ResponseEntity<HeroesEntity> updateHeroesEntity(@PathVariable(value = "id") Integer heroesEntityId,

@@ -11,9 +11,14 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
 
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**").allowedOrigins("http://localhost:4200").allowedMethods("*").maxAge(3600L)
-				.allowedHeaders("*").exposedHeaders("Authorization").allowCredentials(true);
-
+		registry.addMapping("/**")
+				.allowedOrigins("http://localhost:4200")
+				// Adicionei o localhost (sem porta) aqui para conseguir acessar o backend pelo docker
+				.allowedOrigins("http://localhost")
+				.allowedMethods("*").maxAge(3600L)
+				.allowedHeaders("*")
+				.exposedHeaders("Authorization")
+				.allowCredentials(true);
 	}
 
 }
